@@ -1,0 +1,449 @@
+html body {
+    margin: 0;
+    padding: 0;
+    color: #444;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+}
+html {
+    height: 100%;
+}
+body {
+    margin: 2em;
+    background-color: #bdc3c7;
+
+}
+
+header{
+	position:relative;
+    width: 1000px;
+    margin:0px auto;
+    height: 230px;
+    z-index: 10;
+	box-shadow: 5px -5px 5px #000000;
+}
+.posto{
+	width:600px;
+	margin: -100px auto;
+	position:relative;
+}
+.trupi{
+	width: 1000px;
+	background-color: #ffffff;
+    position:absolute;
+    left:0;
+    right:0;
+    margin: -11px auto 30px auto;
+	z-index: 1;
+	box-shadow: 5px 5px 5px #000000;
+}
+#t_fundi{
+	width: 100px;
+}
+.kat_p{
+	display: inline-block;
+	float: left;
+}
+#p_m{
+	position:relative;
+	margin-left:10px;
+	height: 100%;
+	width:180px;
+	z-index: 5;
+}
+#p_mes{
+    width:590px;
+    margin-top:10px;
+	margin-left:10px;
+	z-index: 0;
+   }
+#txtpostim{
+	width:500px;
+	height:80px;
+	margin-right:5px;
+	font-size: 16px;
+	font-weight: bold;
+	border: 3px solid #7F8C8D;
+	transition: border 1s;
+}
+#txtpostim:hover{
+	border: 3px solid #0002FF;
+	transition: border 1s;
+}
+.p_koka{
+	margin-top:7px;
+	margin-left:7px;
+	display: inline-block;
+    float: left;
+}
+#p_ora{
+	padding-top:10px;
+	padding-right:10px;
+	height:30px;
+	width: 330px;
+	text-align: right;
+}
+#p_emri{
+	font-size: 30px;
+	width:140px;
+	padding-left: 5px;
+}
+.postimi{
+	padding-left: 70px;
+	padding-top: 5px;
+	font-size: 18px;
+}
+.postim{
+	margin: 10px 10px 10px 10px;
+	box-shadow: 2px 2px 2px;
+	background-color:#dee4e8;
+}
+.postim form{
+	float:right;
+	background-color:#dee4e8;
+	width: 100%;
+    margin-top:-10px;	
+    margin-bottom:30px;	
+    padding-bottom:10px;
+	box-shadow: 2px 2px 2px;
+}
+.fundi{
+	width: 1000px;
+	height: 100px;
+	margin:0px -200px 0px -200px;
+	background-color: #7F8C8D;
+}
+.postim textarea{
+	width:470px;
+	font-size: 16px;
+	font-weight:bold;
+	resize:vertical;
+	height:60px;
+	padding:5px;
+	margin: 5px 40px;
+	border: 3px solid #7F8C8D;
+	transition: border-color 1s;
+}
+.postim textarea:hover {
+    border: 3px solid #0002FF;
+	transition: border-color 1s;
+}
+.postim input{
+	margin-top: 10px;
+	font-weight:bold;
+	border: 3px solid #7F8C8D;
+	transition: border-color 1s;
+	height:22px;
+	width:200px;
+	padding-left: 5px;
+}
+.postim input:hover{
+	border: 3px solid #0002FF;
+	transition: border-color 1s;
+}
+.postim font{
+	margin-left: 40px;
+	margin-top: 10px;
+	font-weight:bold;
+}
+#pa_foto{
+	padding-bottom: 10px;
+	
+}
+#txtkerko{
+	width: 200px;
+	border: 2px solid #2980B9;
+	height: 25px;
+	margin-right:10px;
+	font-size: 20px;
+	transition: border 1s;
+	border: 3px solid #7F8C8D;
+}
+#txtkerko:hover{
+	transition: border 1s;
+	border: 3px solid #0002FF;
+}
+#but{
+	margin-top: 3px;
+	margin-right:10px;
+	width: 80px;
+	height: 25px;
+	border :3px solid #7F8C8D;
+    font-weight: bold;
+    transition: border,color 1s;
+}
+#but:hover{
+	border: 3px solid #0002FF;
+    color: #0002FF;
+    transition: border,color 1s;
+}
+#but_msg_iri{
+	margin: 3px 10px 10px 445px;
+	width: 80px; 
+	height: 25px;
+	border :3px solid #7F8C8D;
+    font-weight: bold;
+	transition: border,color 1s;
+}
+#but_msg_iri:hover{
+	border: 3px solid #0002FF;
+    color: #0002FF;
+    transition: border,color 1s;
+}
+
+
+#p_d{
+	margin-left:10px;
+	margin-right:10px;
+	width:190px;
+	z-index: 5;
+}
+#nj_kat{
+	padding-left: 10px;
+	padding-top: 4px;
+	margin-top:0px;
+	font-weight:bold;
+	font-size:16px;
+	padding-bottom: 4px;
+	border-bottom:  2px solid #7F8C8D;
+	border-top:  2px solid #7F8C8D;
+	background: rgba(0,0,0,.2);
+}
+#nj_koka{
+	padding-left: 10px;
+	padding-top: 4px;
+	margin-top:10px;
+	font-weight:bold;
+	font-size:16px;
+	padding-bottom: 4px;
+	border-bottom:  2px solid  #0002FF;
+	border-top:  2px solid  #0002FF;
+	background: rgba(0,2,255,.4);
+}
+#njoftim{
+	margin:8px 2px 8px 2px;
+	border-left:  2px solid #7F8C8D;
+	border-right:  2px solid #7F8C8D;
+	font-size:14px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:4px;
+	padding-right:4px;
+	
+	transition: all 1s;
+}
+.nj_mrena{
+	display: inline-block;
+	
+}
+.nj_mrena img{
+	width: 25px;
+}
+#nj_txt{
+	width: 130px;
+	margin-left:5px;
+}
+.a_njoftimi{
+	color: black;
+	text-decoration: none;
+}
+.a_njoftimi:hover{text-decoration: underline;}
+#nj_komanda{
+	margin:10px;
+	padding-top:5px;
+	text-align:center;
+	padding-bottom:5px;
+	border-top:  2px solid #7F8C8D;
+	border-bottom:  2px solid #7F8C8D;
+}
+#f_komanda{
+	margin:18px;
+	padding:5px 15px;
+	font-weight:bold;
+	float:right;
+	text-align:center;
+	border-top:  2px solid #7F8C8D;
+	border-bottom:  2px solid #7F8C8D;
+    transition: border 1s;
+}
+#f_komanda:hover{
+	border-bottom:  2px solid  #0002FF;
+	border-top:  2px solid  #0002FF;
+	transition: border 1s;
+}
+
+#njoftim:hover{
+	border-left:  2px solid #0002FF;
+	border-right:  2px solid #0002FF;
+	background-color:#dee4e8;
+	transition: all 1s;
+	
+}
+#nj_kat:hover{
+	border-bottom:  2px solid  #0002FF;
+	border-top:  2px solid  #0002FF;
+	color: #0002FF;
+	transition: all 1s;
+}   
+   
+   
+header .hmenu{
+	position:relative;
+	z-index:10;
+	height:120px;
+	width:160px;
+	float: left;
+	transition: all .3s;
+	overflow:hidden;
+	margin-top:-5px;
+    
+}
+header .hmenu span{
+	color: #BDC3C7;
+	margin:10px auto;
+	padding:10px;
+	width:40px;
+	background-color:rgba(255,255,255,.3);
+	box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+	border-radius:50%;
+	display: block;
+	font-size: 40px;	
+	transition: all .3s;
+}
+.hmenu font{ 
+color: rgba(255,0,0,0.7);
+font-weight: bold; 
+}
+.hmenu p{
+	color:rgba(255,255,255,.6);
+	text-align: center;
+	padding-top:0px; 
+	transition: all .3s;
+	
+}
+
+header .hmenu:hover{
+	position:relative;
+	z-index:10;
+	height:140px;
+	transition: all .3s;
+}
+header .hmenu:hover p{
+	padding-top:20px; 
+	color:rgba(255,255,255,1);
+	transition: all .3s;
+	
+}
+header .hmenu:hover span{
+	box-shadow: 0px 0px 0px 0px rgba(255,255,255,.6);
+	transition: all .3s;
+}
+/* divi MESAZHEVE ###############################*/
+header #mMesazhe:hover{
+	height:270px;
+	transition: all .3s;
+}
+header #mMesazhe ul{
+	list-style: none;
+	color:#BDC3C7;
+	display: block;
+}
+
+header #mMesazhe ul li{
+	list-style: none;
+	color:#BDC3C7;
+	padding: 5px 30px;
+	background: rgba(255,255,255,.2);
+	margin:2px 0px 0px -40px;
+	transition: all .5s;
+}
+header #mMesazhe ul li:hover{
+	background: rgba(0,0,0,.2);
+	color: rgba(255,255,255,1);
+		transition: all .5s;
+}
+/* divi MESAZHEVE ###############################*/
+/* divi SHOQERIS ###############################*/
+header #mShoqeria:hover{
+	height:270px;
+	transition: all .3s;
+}
+header #mShoqeria ul{
+	list-style: none;
+	color:#BDC3C7;
+	display: block;
+}
+
+header #mShoqeria ul li{
+	list-style: none;
+	color:#BDC3C7;
+	padding: 5px 40px;
+	background: rgba(255,255,255,.2);
+	margin:2px 0px 0px -40px;
+	transition: all .5s;
+}
+header #mShoqeria ul li:hover{
+	background: rgba(0,0,0,.2);
+	color: rgba(255,255,255,1);
+		transition: all .5s;
+}
+/* divi shoqeris ###############################*/
+/* divi RREGULLIMEVE ###############################*/
+header #mRregullime:hover{
+	height:240px;
+	transition: all .3s;
+}
+header #mRregullime ul{
+	list-style: none;
+	color:#BDC3C7;
+	display: block;
+}
+
+header #mRregullime ul li{
+	list-style: none;
+	color:#BDC3C7;
+	padding: 5px 40px;
+	background: rgba(0,0,0,.2);
+	margin:2px 0px 0px -40px;
+	transition: all .5s;
+}
+header #mRregullime ul li:hover{
+	background: rgba(0,0,0,.8);
+		transition: all .5s;
+}
+/* divi REGULLIMEVE ###############################*/
+.koka{
+	display:inline-block;
+	margin: -5px 0px 0px 0px ;
+}
+#i_logo{
+	padding-right:10px;
+}
+.koka table{
+	margin-left: -10px;
+	margin-top:5px;
+}
+#mKryefaqja{
+	background-color: #c0392b;
+}
+#mMesazhe{
+	background-color: #8e44ad;
+}
+#mShoqeria{
+	background-color: #2980b9;
+}
+#mProfili{
+	background-color: #16a085;
+}
+#mRregullime{
+	background-color: #2c3e50;
+}
+
+#mhapsire{
+	background-color: #7f8c8d;
+	width:200px;
+	height: 120px;
+}
+
+
+
