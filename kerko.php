@@ -5,6 +5,7 @@
 	   include 'te_perfshira/func.php';
 	   $id=$_COOKIE["jetaid"];
 	   $kat="Rezultatet e kerkimit";
+	   //shtova koment
 	   try{
            $lidhjar = new PDO("mysql:host=$srv;dbname=$db", $dbuser, $dbpass);
            $perdorues=exec_query("Select * FROM perdorues WHERE id='$id'", $lidhjar);
