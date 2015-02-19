@@ -24,7 +24,7 @@
          	  </div>
          	
          	  <div class="kat_p" id="p_mes"><!-- Paneli Mesit -->
-         	  	<div > <!-- Forma per te postuar  -->
+         	  	<div class='divi_postimit'> <!-- Forma per te postuar  -->
          	  	   <form method='post' action="shtepia.php" id='f_posto' align="right">
          	  	      <img width="50px" height="50px" valign="top" src="<?php echo $perdorues[0]["f_profili"];?>" />
 				      <textarea placeholder="Cfare jeni duke menduar ..." id='txtpostim' style='resize: vertical;' spellcheck='false'></textarea>
@@ -34,8 +34,8 @@
 				      <br><input type='button' id="but" value='Posto !' onclick='posto()' />
 			       </form>
          	  	</div>
-         	   <?php echo shfaq_postimet(1,$id,0,20, $lidhjar);?>
-         	   <div class="fundi">Medin Piranej</div>
+         	   <?php echo shfaq_postimet(1,$id,0,20, $lidhjar);
+         	        ?>
           </div><!-- Mbarimi i divit ne qender -->
           <div class="kat_p" id="p_d"><!-- Divi i panelit djathtas -->
          	  <div class="njoftime" id="nj_koka"><!-- divi i Emrit te panelit -->
@@ -46,6 +46,7 @@
          	  	    <div  class="nj_mrena" id="nj_txt"> Medin piranej ju ka dergua ftese per shopqerim ! </div>
          	  	</div>
          </div><!-- Fundi i panelit djathas -->
+         	   <?php echo fundi();?>
       </div><!-- fundi i divit te trupit -->
    </body>
 </html>

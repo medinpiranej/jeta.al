@@ -22,7 +22,6 @@ if(($emri!="")&&($mbiemri!="")&&($email!="")&&($pass!="")){
 	
 	$person=mysql_fetch_array($result);
 
-		mysql_query("CREATE TABLE ".$person["id"]."mesazhe (ID INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(ID),derguesi INT NOT NULL,marresi INT NOT NULL,permbajtja VARCHAR (1000) NOT NULL,ulexu INT NOT NULL)") or die("NK mujti me hap tabel");
 
 /* Krijohet tabela pe foto*/
 mysql_query("CREATE TABLE IF NOT EXISTS `".$person["id"]."foto` (
@@ -35,13 +34,11 @@ mysql_query("CREATE TABLE IF NOT EXISTS `".$person["id"]."foto` (
 /* Krijohet tabela per  mesazhe */
 mysql_query("CREATE TABLE IF NOT EXISTS `".$person["id"]."mesazhe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `biseda` varchar(30) DEFAULT NULL,
-  `perd1` int(11) DEFAULT NULL,
-  `perd2` int(11) DEFAULT NULL,
-  `perd3` int(11) DEFAULT NULL,
-  `perd4` int(11) DEFAULT NULL,
-  `meshume` int(11) DEFAULT NULL,
-  `koke` tinyint(1) NOT NULL DEFAULT '1',
+  `perd1` int(11) NOT NULL,
+  `perd2` int(11) NOT NULL,
+  `data` datetime NOT NULL,
+  `upa` tinyint(1) NOT NULL,
+  `biseda` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;") or die("NK mujti me hap tabel");
 
@@ -81,13 +78,6 @@ mysql_query("CREATE TABLE IF NOT EXISTS `".$person["id"]."njoftime` (
 		echo "Nje gabim ne rregjistrimin e Cookies";
 	}
 	}
-	
-
-	
-	
-	
-	
-	
 }else header("Location: login.php?gab=true");
 }else header("Location: login.php?gab=true");
 

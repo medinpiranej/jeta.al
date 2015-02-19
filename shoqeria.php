@@ -26,6 +26,7 @@
 			  
 		  }
           include 'te_perfshira/koka_faqes.php';
+		  if($nr_pranime>0)exec_query("DELETE FROM {$id}njoftime where tipi=2", $lidhjar);
           ?> <div class="trupi">
          	  <div class="kat_p" id="p_m"><!-- Paneli majtas -->
          	  	<div class="njoftime" id="nj_koka"><!-- divi i Emrit te panelit -->
@@ -41,6 +42,8 @@
          	  	      echo shfaq_ftesat(1, $id, 0,20, 1, $lidhjar);
          	  	      if((numro($id,"shoke","*", $lidhjar))!=0)echo "<h2 class='f_titull'>Shoket</h2>";
          	  	      echo shfaq_shoket(1, $id, 0, 20, 2, 5, $lidhjar);
+					  
+					  
          	  	       ?>
          	   
           </div><!-- Mbarimi i divit ne qender -->
@@ -53,6 +56,8 @@
          	  	    <div  class="nj_mrena" id="nj_txt"> Medin piranej ju ka dergua ftese per shopqerim ! </div>
          	  	</div>
          </div><!-- Fundi i panelit djathas -->
+         <!-- Fundi i faqes-->
+         <?php echo fundi();?>
       </div><!-- fundi i divit te trupit -->
    </body>
 </html>

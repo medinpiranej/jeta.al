@@ -185,23 +185,102 @@ function kerko($id,$txt,$lidhjar){
 		  }
 		  
 		return $html_rez;}
-function listo_bisedat($id,$id_bis,$lidhjar){
+function shfaq_bis($id,$id_bis,$lidhjar){
 	$b_html="";
-	$bised=exec_query("SELECT * FROM {$id}mesazhe join perdorues on perd1=id or perd2=id order by data", $lidhjar);
-    if(empty($bised))return "";
-    
-    
-  
-	return $b_html;
+	if($id_bis!=-1){// liston bisedat
+	$bisedak=exec_query("SELECT biseda,perd2 FROM {$id}mesazhe where id=$id_bis", $lidhjar);
+    if(!empty($bisedak)){
+	$tjetri=exec_query("select * from perdorues where id=".$bisedak[0]["perd2"], $lidhjar);
+    $biseda=exec_query("SELECT * FROM `{$bisedak[0]["biseda"]}` order by id desc", $lidhjar);
+	exec_query("UPDATE `{$id}mesazhe` SET `upa` = '1' WHERE perd2=".$bisedak[0]["perd2"], $lidhjar);
+    if((!empty($biseda))&&(!empty($biseda))){
+    	$i=0;
+		$b_html.="<h2>{$tjetri[0]["emri"]} {$tjetri[0]["mbiemri"]} </h2>";
+		$b_html.="".msg_i_ri($id,-1,$id_bis, $lidhjar);
+		while(!empty($biseda[$i]["id"])){
+    			if($biseda[$i]["derguesi"]==$tjetri[0]["id"]){
+    			   $b_html.="<div class='mesazhim'><img  width='50px' class='mesazh' src='{$tjetri[0]["f_profili"]}'  height='50px'><div class='mesazh'>
+    				                   {$biseda[$i]["msg"]} 
+    				             </div></div>";
+    			   }else {
+    			   	 $css_msg="mesazhid";
+				     $b_html.="<div class='mesazhid' align='right'><div class='mesazh'>
+    				                   {$biseda[$i]["msg"]} 
+    				             </div><img  width='50px' class='mesazh' src='{$GLOBALS["perdorues"][0]["f_profili"]}'  height='50px'></div>";
+				   } 
+			$i++;
+    	}
+	}else echo "biseda bosh !";
+    }
+	}else{ // liston kokat e bisedave ose derguesit
+	$biseda=exec_query("SELECT perdorues.id,emri,mbiemri,{$id}mesazhe.id as bis_id,f_profili,upa  FROM {$id}mesazhe join perdorues on perd2=perdorues.id order by data", $lidhjar);
+	if(empty($biseda))$b_html.="<br>&nbsp;Nuk ka biseda ...<br>&nbsp;Dergo nje mesazh te ri !";	
+	else{
+		$i=0;
+		while(!empty($biseda[$i]["bis_id"])){
+	    if(isset($_GET["bis"]))if($_GET["bis"]==$biseda[$i]["bis_id"])$css_id="msg_zgj";else $css_id="njoftim";else $css_id="njoftim";
+		if($biseda[$i]["upa"]==0)$css_id="njoftim_iri";
+		$b_html.="<div onclick='hap_bis({$biseda[$i]["bis_id"]})' class='njoftime' id='$css_id'><a href='profili.php?id={$biseda[$i]["id"]}'>
+		<img valign='top' src='{$biseda[$i]["f_profili"]}' class='nj_mrena' width='25px' height='25px'></a>
+		<div  class='nj_mrena' id='nj_txt'>{$biseda[$i]["emri"]}{$biseda[$i]["mbiemri"]}</div></div>";
+	  	 $i++;            	      
+		}
+		
+	}}return $b_html;
 	}
-function msg_i_ri($id,$id_marresi,$lidhjar){
+function msg_i_ri($id,$id_marresi,$id_bis,$lidhjar){
 	$e="";
-	if($id_marresi!=-1)$marresi=exec_query("SELECT * FROM perdorues where id=$id_marresi", $lidhjar);
-	$e.="<div class='postim' > <!-- Forma e mesazhit hapes  --><form method='post' action='mesazhe.php' id='f_msg_iri'><font>Per : </font>";
-    if(!empty($marresi[0]["id"]))$e.="<input spellcheck='false' type='text' value='{$marresi[0]["emri"]} {$marresi[0]["mbiemri"]}' name='e_marresi'><input type='hidden' value='{$marresi[0]["id"]}' name='h_marresi'>";   
-	else $e.="<input spellcheck='false' type='text' value='' name='e_marresi'><input type='hidden' value='0' name='h_marresi'>";   
-    $e.="<input type='hidden' name='h_msg' value=''><textarea spellcheck='false' placeholder='Mesazhi Juaj ...' id='msg'></textarea>";     	
+	if($id_bis!=-1){
+	$e.="<div class='dergo_msg'> <!-- Forma e mesazhit --><form method='post' action='mesazhe.php' id='f_msg_iri'>";
+    $e.="<input spellcheck='false' type='hidden' value='-1' id='i_e_marresi' name='e_marresi'><input type='hidden' value='-1' id='i_h_marresi' name='h_marresi'>";   
+    $e.="<input type='hidden' name='h_msg' id='i_h_msg' value=''>
+    <input type='hidden' name='id_bis' value='$id_bis'>
+    <textarea spellcheck='false' placeholder='Mesazh i ri ...' id='msg' class='msg_bis'></textarea>";     	
+	$e.="<br><input type='button' id='but_msg_iri' value='Dergo !' onclick='dergo_msg_iri()' /></form></div>";}
+	else{
+		if($id_marresi!=-1)$marresi=exec_query("SELECT * FROM perdorues where id=$id_marresi", $lidhjar);
+	$e.="<div class='dergo_msg' > <!-- Forma e mesazhit hapes  --><form method='post' action='mesazhe.php' id='f_msg_iri'><font>Per : </font>";
+    if(!empty($marresi[0]["id"]))$e.="<input spellcheck='false' type='text' value='{$marresi[0]["emri"]} {$marresi[0]["mbiemri"]}' id='i_e_marresi' name='e_marresi'><input type='hidden' value='{$marresi[0]["id"]}' id='i_h_marresi' name='h_marresi'>";   
+	else $e.="<input spellcheck='false' type='text' value='' placeholder='Marresi ...' id='i_e_marresi' name='e_marresi'><input type='hidden' value='0' id='i_h_marresi' name='h_marresi'>";   
+    $e.="<input type='hidden' name='h_msg' id='i_h_msg' value=''>
+    <input type='hidden' name='id_bis' value='-1'>
+    <textarea spellcheck='false' placeholder='Mesazhi Juaj ...' id='msg'></textarea>";     	
 	$e.="<br><input type='button' id='but_msg_iri' value='Dergo !' onclick='dergo_msg_iri()' /></form></div>";
+	}
 	return $e;
-};
+}
+function nis_mesazh($id,$id_marresi,$id_bis,$msg,$lidhjar){
+	if($id_bis==-1){
+	$tmp1=exec_query("SELECT * FROM {$id}mesazhe join perdorues on perd1=$id and perd2=$id_marresi", $lidhjar);
+	if(!empty($tmp1))$id_bis=$tmp1[0]["biseda"];
+	else {
+		exec_query("INSERT INTO {$id}mesazhe (perd1,perd2,data,upa,biseda) values ('$id','$id_marresi',CURRENT_TIME,1,'{$id}.{$id_marresi}.bisede') ", $lidhjar);
+		exec_query("INSERT INTO {$id_marresi}mesazhe (perd1,perd2,data,upa,biseda) values ('$id_marresi','$id',CURRENT_TIME,0,'{$id}.{$id_marresi}.bisede') ", $lidhjar);
+		exec_query("CREATE TABLE IF NOT EXISTS `{$id}.{$id_marresi}.bisede` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `derguesi` int(11) NOT NULL,
+  `data` datetime NOT NULL,
+  `msg` varchar(1000) NOT NULL,
+  `kat` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;", $lidhjar);
+	
+		exec_query("INSERT INTO `{$id}.{$id_marresi}.bisede`(derguesi,msg,data,kat) values ('$id','$msg',CURRENT_TIME,1) ", $lidhjar);
+		
+		$tmp1=exec_query("SELECT * FROM {$id}mesazhe join perdorues on perd1=$id and perd2=$id_marresi", $lidhjar);
+		if(!empty($tmp1))return shfaq_bis($id,$tmp1[0]["id"],$lidhjar);
+		else echo "Gabim ne nisjen e mesazhit !";
+	}
+	}
+	if($id_bis!=-1){
+		$bis_tab=exec_query("Select biseda from {$id}mesazhe where id=$id_bis", $lidhjar);
+		exec_query("INSERT INTO `{$bis_tab[0]["biseda"]}` (derguesi,msg,data,kat) values ('$id','$msg',CURRENT_TIME,1) ", $lidhjar);
+		exec_query("UPDATE `{$id_marresi}mesazhe` SET `upa` = '0' WHERE perd2=$id", $lidhjar);
+		exec_query("UPDATE `{$id}mesazhe` SET `upa` = '1' WHERE perd2=$id_marresi", $lidhjar);
+	return shfaq_bis($id,$id_bis,$lidhjar);
+	}
+    
+	
+	}
+function fundi(){return " <div class='kat_p' id='fundi'>&copy; <a href='medin-piranej.tk' class='a_njoftimi'>Medin Piranej</a><br></div>";}
 ?>

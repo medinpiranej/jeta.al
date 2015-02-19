@@ -47,20 +47,24 @@ header{
 #p_m{
 	position:relative;
 	margin-left:10px;
+	
 	height: 100%;
 	width:180px;
 	z-index: 5;
 }
 #p_mes{
-    width:590px;
-    margin-top:10px;
-	margin-left:10px;
+    width:580px;
 	z-index: 0;
+	margin: 10px 10px 10px 10px;
+	box-shadow: 5px 5px 5px;
+	background-color:#dee4e8;
+
    }
 #txtpostim{
-	width:500px;
+	width:490px;
 	height:80px;
 	margin-right:5px;
+	margin-top:0px;
 	font-size: 16px;
 	font-weight: bold;
 	border: 3px solid #7F8C8D;
@@ -96,23 +100,36 @@ header{
 .postim{
 	margin: 10px 10px 10px 10px;
 	box-shadow: 2px 2px 2px;
-	background-color:#dee4e8;
+	background-color:#FFFFFF;
 }
-.postim form{
-	float:right;
-	background-color:#dee4e8;
+.divi_postimit{
+	margin-top: 10px;
+}
+.dergo_msg{
+	margin: 10px 15px 10px 10px;
+}
+.dergo_msg textarea{
 	width: 100%;
-    margin-top:-10px;	
-    margin-bottom:30px;	
-    padding-bottom:10px;
-	box-shadow: 2px 2px 2px;
+	resize:vertical;
+	font-size:14px;
+	border-bottom: 2px solid #7F8C8D;
+	border-top: 2px solid #7F8C8D;
+	border-left:0px;
+	margin:5px 0px;
+	border-right:0px; 
 }
-.fundi{
-	width: 1000px;
-	height: 100px;
-	margin:0px -200px 0px -200px;
+#fundi{
+	width: 960px;
+	height: 60px;
+	text-align:right;
+	color:black;
+	z-index:0;
+	padding-right:40px;
+	padding-top:40px;
+	margin:0px 0px 0px 0px;
 	background-color: #7F8C8D;
 }
+
 .postim textarea{
 	width:470px;
 	font-size: 16px;
@@ -229,7 +246,52 @@ header{
 	padding-bottom:10px;
 	padding-left:4px;
 	padding-right:4px;
+	transition: all 1s;
+}
+#njoftim_iri{
+	margin:8px 2px 8px 2px;
+	border-left:  2px solid #7F8C8D;
+	border-right:  2px solid #7F8C8D;
+	font-size:14px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:4px;
+	padding-right:4px;
+	background-color: rgba(255,0,0,0.5);
+
+}
+#njoftim:hover{
+	border-left:  2px solid #0002FF;
+	border-right:  2px solid #0002FF;
+	background-color:#dee4e8;
+	transition: all 1s;
 	
+}
+.mesazh{
+	display: inline;
+}
+.mesazhim{
+	background:  #dee4e8;
+	box-shadow 3px 3px 3px;
+	margin:5px 150px 5px 10px;
+	padding:10px;
+}
+.mesazhid{
+	background:  #dee4e8;
+	box-shadow 3px 3px 3px;
+	margin:5px 10px 5px 150px;
+	padding:10px;
+}
+#msg_zgj{
+	margin:8px 2px 8px 2px;
+	border-left:  2px solid #0002FF;
+	border-right:  2px solid #0002FF;
+	background-color:#dee4e8;
+	font-size:14px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:4px;
+	padding-right:4px;
 	transition: all 1s;
 }
 .nj_mrena{
@@ -272,13 +334,6 @@ header{
 	transition: border 1s;
 }
 
-#njoftim:hover{
-	border-left:  2px solid #0002FF;
-	border-right:  2px solid #0002FF;
-	background-color:#dee4e8;
-	transition: all 1s;
-	
-}
 #nj_kat:hover{
 	border-bottom:  2px solid  #0002FF;
 	border-top:  2px solid  #0002FF;

@@ -2,8 +2,8 @@ function klikmenu(menu){
 	switch (menu){
 		case 10:window.location.replace("shtepia.php");break;
 		
-		case 20:window.location.replace("mesazhe.php");break;
-		case 21:window.location.replace("mesazhe.php?dergo=true");break;
+		case 20:window.location.replace("mesazhe.php?iri=true");break;
+		case 21:window.location.replace("mesazhe.php?iri=1");break;
 		case 22:window.location.replace("mesazhe.php");break;
 		case 23:window.location.replace("mesazhe.php?grupe=1");break;
 		
@@ -38,10 +38,10 @@ function posto(){
 }
 function dergo_msg_iri(){
 	var marresi_id,marresi_txt,msg,msg_sub;
-	marresi_id=document.getElementByName("h_marresi");
-	marresi_txt=document.getElementsByName("e_marresi").value;
+	marresi_id=document.getElementById("i_h_marresi");
+	marresi_txt=document.getElementById("i_e_marresi").value;
 	msg=document.getElementById("msg");
-	document.getElementByName("h_msg").value=msg.value;
+	document.getElementById("i_h_msg").value=msg.value;
 	document.getElementById("f_msg_iri").submit();
 }
 function mgr_shok(shoku){
@@ -51,4 +51,7 @@ function mgr_shok(shoku){
 		case 4:window.location.replace("shoqeria.php?fshi="+shoku);break;
 		
 	}
+}
+function hap_bis(bis){
+		window.location.replace("mesazhe.php?bis="+bis);
 }

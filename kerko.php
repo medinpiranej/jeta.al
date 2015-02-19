@@ -25,7 +25,6 @@
           <div class="kat_p" id="p_mes"><!-- Paneli Mesit -->
           	    <?php 
           	        echo kerko($id, $txt, $lidhjar);
-          	       
           	    ?>
          	   
           </div><!-- Mbarimi i divit ne qender -->
@@ -38,6 +37,8 @@
          	  	    <div  class="nj_mrena" id="nj_txt"> Medin piranej ju ka dergua ftese per shopqerim ! </div>
          	  	</div>
          </div><!-- Fundi i panelit djathas -->
+         <!-- Fundi i faqes-->
+         <?php echo fundi();?>
       </div><!-- fundi i divit te trupit -->
    </body>
 </html>

@@ -5,7 +5,7 @@
       $nr_pranime=exec_query("Select count(id) as nr from {$perdorues[0]["id"]}njoftime where upa=false and tipi=2", $lidhjar);
       if (empty($nr_pranime))$nr_pranime=0;else $nr_pranime=$nr_pranime[0]["nr"];
 	  
-	  $nr_mszh=exec_query("Select count(id) as nr from {$perdorues[0]["id"]}njoftime where upa=false and tipi=3", $lidhjar);
+	  $nr_mszh=exec_query("Select count(id) as nr from {$perdorues[0]["id"]}mesazhe where upa=false", $lidhjar);
       if (empty($nr_mszh))$nr_mszh=0;else $nr_mszh=$nr_mszh[0]["nr"];
 	  
 	  $total_sh=0;
@@ -16,7 +16,7 @@
 <html>
 	<head>
 		<title>jeta</title>
-		<script type='text/javascript' src=<?php echo gen_adr('js/js_kryesore.js'); ?>></script>
+		<script type='text/javascript' src='js/js_kryesore.js'></script>
 		<link rel='stylesheet' type='text/css' href='./css/stile_kryesore.css' />
 		<link rel='stylesheet' type='text/css' href='./css/font/flaticon.css' />
 	</head>
@@ -47,7 +47,7 @@
 					<span class='flaticon-home156'></span>
 					<p>Kryefaqja</p>
 				</div>
-				<div class='hmenu' id='mMesazhe' onclick='klikmenu(20)'>
+				<div class='hmenu' id='mMesazhe'>
 					<span class='flaticon-edit46'><?php if(!empty($nr_mszh))echo '<font>'.$nr_mszh.'</font>' ?></span>
 					<p>Mesazhet</p>
 					<ul>
@@ -61,7 +61,7 @@
 					<span class='flaticon-male80'></span>
 					<p>Profili</p>
 				</div>
-				<div class='hmenu'id='mShoqeria' onclick='klikmenu(40)'>
+				<div class='hmenu'id='mShoqeria'>
 					<span class='flaticon-social108'><?php if($total_sh>0)echo "<font>$total_sh</font>";?></span>
 					<p>Shoqeria</p>
 						<ul>

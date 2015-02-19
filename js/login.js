@@ -1,11 +1,10 @@
 			function kontrollo_login(){
-				var ok_email=false,ok_pass=false,email,pas;
-				email=document.getElementById("idemail");
-				pas=document.getElementById("idpas");
-		        if((email.value=="")||(email.value==" "))document.getElementById("lemail").style.color="#ff0000";
-				else {ok_email=true;document.getElementById("lemail").style.color="#000000";}
-		        if((pas.value=="")||(pas.value==" "))document.getElementById("lpas").style.color="#ff0000";
-				else {ok_pass=true;document.getElementById("lpas").style.color="#000000";}
+				var ok_email=true,ok_pass=true;
+		        if(document.getElementById("idemail").value==""){document.getElementById("sle").innerHTML="*";ok_email=false;}
+		        else{document.getElementById("sle").innerHTML="";ok_email=true;}
+		        if(document.getElementById("idpas").value==""){document.getElementById("slp").innerHTML="*";ok_pass=false;
+		        }else{document.getElementById("slp").innerHTML="";ok_pass=true;}
+				
 				if(ok_pass&&ok_email)document.getElementById("form_login").submit();
 			}
 			function kontrollo_signup(){
@@ -37,4 +36,27 @@ function kontrollo_submit(){
         	document.getElementById('submittextid').value=document.getElementById('idtextarea').value;
         	document.getElementById("formid").submit();
         }
+}
+$(document).ready(function(){
+	var hap=false;
+	$("#bRegjister").click(function() {
+		if(!$hapurRegjister){
+				$(".regjsterForm").slideDown('normal');
+				$hapurRegjister=true;
+		}else{
+				$(".regjsterForm").slideUp('normal');
+				$hapurRegjister=false;
+		}
+	
+		
+	});
+	
+});
+function hapu(menu){
+	if(menu==1){$(".login").slideUp('normal');
+	$(".rregjistrohu").slideDown('normal');}
+	else{
+	     $(".login").slideDown('normal'); 
+	     $(".rregjistrohu").slideUp('normal');}
+	
 }
