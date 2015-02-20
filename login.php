@@ -21,10 +21,10 @@
 		</div>
 		<div class="rregjistrohu">
 		<form class="logintxt" method="post" action="rregjistrohu.php" id="form_signup">
-		<input type="text"  class="inputlogintext"  placeholder="Emri ..."   name="signup_emri" id="idemri" value=""/><br/>
-		<input type="text" class="inputlogintext"  placeholder="Mbiemri ..."  name="signup_mbiemri" id="idmbiemri" value=""/><br/>
-		<input type="text" class="inputlogintext"  placeholder="Email ..."  name="signup_email" id="idemail2" value=""/><br/>
-		<input type="password" class="inputlogintext" placeholder="Fjalekalimi ..."  name="signup_pass" id="idpas2" value=""/><br/>
+		<input type="text"  class="inputlogintext"  placeholder="Emri ..."   name="signup_emri" id="idemri" value=""/><span id="sre" class="gabim"></span><br>
+		<input type="text" class="inputlogintext"  placeholder="Mbiemri ..."  name="signup_mbiemri" id="idmbiemri" value=""/><span id="srm" class="gabim"></span><br>
+		<input type="text" class="inputlogintext"  placeholder="Email ..."  name="signup_email" id="idemail2" value=""/><span id="srem" class="gabim"></span><br>
+		<input type="password" class="inputlogintext" placeholder="Fjalekalimi ..."  name="signup_pass" id="idpas2" value=""/><span id="srp" class="gabim"></span><br>
 		
 		<a id='a2' onclick="hapu(2)">Jam i rregjistruar !</a><input type="button" value="Rregjistrohu!" class='loginbut' name="but_signup" id="but_signup" onclick="kontrollo_signup()" />
 		</form>
