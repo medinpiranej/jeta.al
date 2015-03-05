@@ -148,7 +148,7 @@ function fto_shok($id,$id_shokut,$lidhjar){
 }
 function kerko($id,$txt,$lidhjar){
 	       $html_rez="";
-		   $strpos=stripos($txt,"@");
+		   $strpos=1;   //stripos($txt,"@");
 		   if($strpos>-1){
               $rez=exec_query("SELECT * FROM perdorues where email='$txt'",$lidhjar);
 		      if(empty($rez)){

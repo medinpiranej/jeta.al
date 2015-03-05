@@ -14,7 +14,7 @@ body{
 	margin-right:auto;
 }
 .miresevini{
-	background-color: #0002FF;
+	background-color: #7834e5;
     border-top-left-radius:30px;
     border-top-right-radius:30px;
 	padding-top: 5px;
@@ -84,6 +84,7 @@ a{
 	font-style: normal;
 }
 a:hover{
+	cursor:pointer;
 	text-decoration: underline;
 }
 #a2{
